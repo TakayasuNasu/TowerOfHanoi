@@ -1,0 +1,43 @@
+/* @theme gaia-ex */
+
+@import "gaia";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto&display=swap");
+
+@-webkit-keyframes fade-list {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-list {
+  100% {
+    opacity: 1;
+  }
+}
+
+section {
+  font-family: "Noto Sans", "Roboto", sans-serif;
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(62, 161, 219, 1) 11.2%,
+    rgba(93, 52, 236, 1) 100.2%
+  );
+  color: #ffffff;
+}
+
+img {
+  max-width: 100%;
+}
+
+li {
+  opacity: 0;
+}
+
+li:nth-child(1) {
+  animation: fade-list 0.5s ease 0.5s 1 forwards;
+}
+li:nth-child(2) {
+  animation: fade-list 1s ease 0.5s 1 forwards;
+}
+li:nth-child(3) {
+  animation: fade-list 1.5s ease 0.5s 1 forwards;
+}
