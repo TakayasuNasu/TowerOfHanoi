@@ -2,6 +2,7 @@
 marp: true
 paginate: true
 theme: gaia-ex
+math: katex
 ---
 
 <!-- _class: first -->
