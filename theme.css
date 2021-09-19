@@ -41,3 +41,67 @@ li:nth-child(2) {
 li:nth-child(3) {
   animation: fade-list 1.5s ease 0.5s 1 forwards;
 }
+li:nth-child(4) {
+  animation: fade-list 2s ease 0.5s 1 forwards;
+}
+li:nth-child(5) {
+  animation: fade-list 2.5s ease 0.5s 1 forwards;
+}
+
+section.first {
+  background-image: url(./bg02.jpg);
+  background-size: cover;
+  color: #000000;
+}
+
+section.first:before,
+section.end:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+section.first h1 {
+  margin-top: 10%;
+  font-family: serif;
+}
+
+section.first ul {
+  margin: 0 auto;
+  margin-top: 10%;
+  width: max-content;
+  height: max-content;
+  list-style: none;
+}
+
+section.end {
+  background-image: url(./bg01.jpg);
+  background-size: cover;
+}
+section.end {
+  display: flex;
+  align-items: center;
+}
+
+section.end h2 {
+  width: 64%;
+  font-family: serif;
+  color: #000000;
+}
+
+section.ten {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+}
+
+section.ten ul {
+  font-size: 3em;
+  list-style: none;
+}

@@ -4,34 +4,36 @@ paginate: true
 theme: gaia-ex
 ---
 
-<!-- _class: top -->
+<!-- _class: first -->
 
-Algorithm Tower of Hanoi
+Tower of Hanoi Puzzle Algorithm
 ===
 
 - Takayasu Nasu
 
 ---
 
-#### Agenda
+## Agenda
 
 - What is Tower of Hanoi
 - Use case
 - Explanation
-- Conclusion.
+- Conclusion
 - Sample code
 
 ---
 
-#### ice break
+## ice break
 
-Which of these towers is in Hanoi?
+Which of these towers is in Hanoi? A, B or C?
 
 |  A | B  |  C |
 |---|---|---|
 |　![leaning_tower_of_pisa](https://www.touropia.com/gfx/d/famous-towers-in-the-world/leaning_tower_of_pisa.jpg "leaning_tower_of_pisa") |　![hanoi](https://upload.wikimedia.org/wikipedia/commons/6/60/Tower_of_Hanoi_4.gif "hanoi") | ![cn_tower](https://www.touropia.com/gfx/d/famous-towers-in-the-world/cn_tower.jpg "cn_tower") |
 
 ---
+
+### Correct answer is B.
 
 |  A | B  |  C |
 |--|:-:|---|
@@ -44,7 +46,10 @@ Which of these towers is in Hanoi?
 
 The Tower of Hanoi is a mathematical game or puzzle consisting of three rods and a number of disks of various diameters, which can slide onto any rod.
 
+---
+
 The puzzle begins with the disks stacked on one rod in order of decreasing size, the smallest at the top, thus approximating a conical shape.
+
 
 The objective of the puzzle is to move the entire stack to the last rod, obeying the following rules:
 
@@ -54,96 +59,120 @@ The objective of the puzzle is to move the entire stack to the last rod, obeying
 
 ---
 
-### Let's brain exercise.
+## Let's brain exercise.
 
 ---
 
 ## Use case
 
-Let's consider How many times we have to move, in the case of one disk, two disks, and three disks.
+Let's consider How many times we have to move, in the case of 1 disk, 2 disks, and 3 disks.
 
 ---
 
-one disks
+## 1 disk
 
 ![n1](https://www.kirupa.com/data_structures_algorithms/images/toh_one_144.png)
 
 ---
 
+### only 1 time
+
 ![n1](https://www.kirupa.com/data_structures_algorithms/images/toh_one_final_144.png)
 
 ---
 
-two disks
+## 2 disks
 
 ![n2](https://www.kirupa.com/data_structures_algorithms/images/two_toh_144.png)
 
 ---
 
+### 1
+
 ![n2](https://www.kirupa.com/data_structures_algorithms/images/two_toh_2_144.png)
 
 ---
+
+### 2
 
 ![n2](https://www.kirupa.com/data_structures_algorithms/images/two_toh_3_144.png)
 
 ---
 
+### 3 times
+
 ![n2](https://www.kirupa.com/data_structures_algorithms/images/two_toh_4_144.png)
 
 ---
 
-three disks
+## 3 disks
 
 ![n3](https://www.kirupa.com/data_structures_algorithms/images/three_toh_1_144.png)
 
 ---
 
+### 1
+
 ![n3](https://www.kirupa.com/data_structures_algorithms/images/three_toh_2_144.png)
 
 ---
+
+### 2
 
 ![n3](https://www.kirupa.com/data_structures_algorithms/images/three_toh_3_144.png)
 
 ---
 
+### 3
+
 ![n3](https://www.kirupa.com/data_structures_algorithms/images/three_toh_4_144.png)
 
 ---
+
+### 4
 
 ![n3](https://www.kirupa.com/data_structures_algorithms/images/three_toh_5_144.png)
 
 ---
 
+### 5
+
 ![n3](https://www.kirupa.com/data_structures_algorithms/images/three_toh_6_144.png)
 
 ---
+
+### 6
 
 ![n3](https://www.kirupa.com/data_structures_algorithms/images/three_toh_7_144.png)
 
 ---
 
+### 7 times
+
 ![n3](https://www.kirupa.com/data_structures_algorithms/images/three_toh_8_144.png)
 
 ---
 
-How about ten disks case?
+<!-- _class: ten -->
+
+## How about 10 disks case?
 
 ---
 
-1023 times.
+<!-- _class: ten -->
+
+- 1023 times.
 
 ---
 
-Did you come up with a solution?
-Let's think about how to solve it.
+## Did you come up with a solution?
+## Let's think about how to solve it.
 
 ---
 
 ## Explanation
 
----
-
-For example 6 disks case.
+### For example 6 disks case.
 
 1. First, move 5 disks from rod A to rod C
 1. Next, move the largest disk (of the 6) from rod A to rod B
@@ -151,7 +180,7 @@ For example 6 disks case.
 
 ---
 
-For example 5 disks case.
+### For example 5 disks case.
 
 1. First, move 4 disks from rod A to rod C
 1. Next, move the largest disk (of the 5) from rod A to rod B
@@ -159,9 +188,9 @@ For example 5 disks case.
 
 ---
 
-That's mean
+## That's mean
 
-To move n disks from column A to column B
+### To move n disks from column A to column B
 
 case of `n = 0`
 :arrow_right: Nothing
@@ -193,7 +222,7 @@ $H(n) = H(n - 1) + 1 + H(n - 1)$
 
 ---
 
-Let's see from 0 disk
+## Let's see from 0 disk
 
 $H(0) = 0$
 $H(1) = H(0) + 1 + H(0) = 0 + 1 + 0 = 1$
@@ -204,7 +233,8 @@ $H(5) = H(4) + 1 + H(4) = 15 + 1 + 15 = 31$
 $H(6) = H(5) + 1 + H(5) = 31 + 1 + 31 = 63$
 
 ---
-In other words
+
+### In other words
 
 $0 = 1 - 1$
 $1 = 2 - 1$
@@ -218,14 +248,18 @@ $1, 2, 4, 8 = 2^0, 2^1, 2^2, 2^3, 2^4$
 
 ## Conclusion
 
+It can be obtained how many times moving disks from the following formula.
+
 $H(n) = 2^n - 1$
 
 ---
 
-Do you feel lazy?
-OK, I'll make the computer calculate.
+## Do you feel lazy?
+## OK, I'll make the computer calculate.
 
 ---
+
+### This is the solution code.
 
 ```js
 const H = (n, x = 'x', y = 'y', z = 'z') => {
@@ -243,7 +277,7 @@ H(3)
 
 ---
 
-result
+## result
 
 ```bash
 x -> y
@@ -256,5 +290,6 @@ x -> y
 ```
 
 ---
+<!-- _class: end -->
 
-Thank you very much for your attention.
+## Thank you very much for your attention.
