@@ -67,6 +67,7 @@ section.end:before {
 }
 
 section.first h1 {
+  position: relative;
   margin-top: 10%;
   font-family: serif;
 }
@@ -89,6 +90,7 @@ section.end {
 }
 
 section.end h2 {
+  position: relative;
   width: 64%;
   font-family: serif;
   color: #000000;

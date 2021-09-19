@@ -161,7 +161,7 @@ Let's consider How many times we have to move, in the case of 1 disk, 2 disks, a
 
 <!-- _class: ten -->
 
-- 1023 times.
+- 1023 times
 
 ---
 
@@ -190,7 +190,7 @@ Let's consider How many times we have to move, in the case of 1 disk, 2 disks, a
 
 ## That's mean
 
-### To move n disks from column A to column B
+### To move n disks from rod A to rod B
 
 case of `n = 0`
 :arrow_right: Nothing
@@ -218,7 +218,21 @@ $H(1) = 1$
 
 That's mean
 
-$H(n) = H(n - 1) + 1 + H(n - 1)$
+$H(1) = H(1 - 1) + 1 + H(1 - 1)$
+
+$H(1) = H(0) + 1 + H(0) = 1$
+
+---
+
+Way of move 2 disks
+
+$H(2) = 3$
+
+That's mean
+
+$H(2) = H(2 - 1) + 1 + H(2 - 1)$
+
+$H(2) = H(1) + 1 + H(1) = 3$
 
 ---
 
@@ -242,7 +256,9 @@ $3 = 4 - 1$
 $7 = 8 - 1$
 $15 = 16 - 1$
 
-$1, 2, 4, 8 = 2^0, 2^1, 2^2, 2^3, 2^4$
+Look at the second number.
+
+$1, 2, 4, 8, 16 = 2^0, 2^1, 2^2, 2^3, 2^4$
 
 ---
 
@@ -252,10 +268,11 @@ It can be obtained how many times moving disks from the following formula.
 
 $H(n) = 2^n - 1$
 
----
+### How about 10 disks case?
 
-## Do you feel lazy?
-## OK, I'll make the computer calculate.
+$2^{10} = 1024$
+
+$H(10) = 1024 - 1 = 1023$
 
 ---
 
