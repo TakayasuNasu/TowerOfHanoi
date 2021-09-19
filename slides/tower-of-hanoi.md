@@ -16,16 +16,16 @@ Algorithm Tower of Hanoi
 #### Agenda
 
 - What is Tower of Hanoi
-- サンプル - 1 / 2 / 3 / 10
-- 解説
-- コード
-- 結論
+- Use case
+- Explanation
+- Conclusion.
+- Sample code
 
 ---
 
 #### ice break
 
-この中で中でハノイの塔はどれ?
+Which of these towers is in Hanoi?
 
 |  A | B  |  C |
 |---|---|---|
@@ -40,7 +40,7 @@ Algorithm Tower of Hanoi
 
 ---
 
-What is Tower of Hanoi
+## What is Tower of Hanoi
 
 The Tower of Hanoi is a mathematical game or puzzle consisting of three rods and a number of disks of various diameters, which can slide onto any rod.
 
@@ -48,13 +48,24 @@ The puzzle begins with the disks stacked on one rod in order of decreasing size,
 
 The objective of the puzzle is to move the entire stack to the last rod, obeying the following rules:
 
+1. Only one disk may be moved at a time.
+1. Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or on an empty rod.
+1. No disk may be placed on top of a disk that is smaller than it.
+
 ---
 
-Let's brain exercise.
+### Let's brain exercise.
 
 ---
 
-1枚のみ
+## Use case
+
+Let's consider How many times we have to move, in the case of one disk, two disks, and three disks.
+
+---
+
+one disks
+
 ![n1](https://www.kirupa.com/data_structures_algorithms/images/toh_one_144.png)
 
 ---
@@ -63,7 +74,8 @@ Let's brain exercise.
 
 ---
 
-2枚
+two disks
+
 ![n2](https://www.kirupa.com/data_structures_algorithms/images/two_toh_144.png)
 
 ---
@@ -80,7 +92,8 @@ Let's brain exercise.
 
 ---
 
-3枚
+three disks
+
 ![n3](https://www.kirupa.com/data_structures_algorithms/images/three_toh_1_144.png)
 
 ---
@@ -113,11 +126,11 @@ Let's brain exercise.
 
 ---
 
-10枚
+How about ten disks case?
 
 ---
 
-1024
+1023 times.
 
 ---
 
@@ -126,54 +139,61 @@ Let's think about how to solve it.
 
 ---
 
-1. まず5枚の円盤を柱Aから柱Bに移す
-1. 次に(6枚の中で)最も大きな円盤を柱Aから柱Bに移す
-1. 最後に、5枚の円盤を柱Cから柱Bに移す
+## Explanation
 
 ---
 
-1. まず4枚の円盤を柱Aから柱Bに移す
-1. 次に(5枚の中で)最も大きな円盤を柱Aから柱Bに移す
-1. 最後に、4枚の円盤を柱Cから柱Bに移す
+For example 6 disks case.
+
+1. First, move 5 disks from rod A to rod C
+1. Next, move the largest disk (of the 6) from rod A to rod B
+1. Finally, move the 5 disks from rod C to rod B.
 
 ---
 
-つまり
+For example 5 disks case.
 
-n枚の円盤を、柱Aから柱Bに移すには
-
-`n = 0`の場合
-- 何もしない
-
-`n > 0`の場合
-- まず、n-1枚の円盤を、柱xから柱zへ柱yを利用して移す
-- 次に、1枚の円盤を、柱xから柱yへ移す
-- 最後に`n -1`枚の円盤を、柱zから柱yへ柱xを利用して移す
+1. First, move 4 disks from rod A to rod C
+1. Next, move the largest disk (of the 5) from rod A to rod B
+1. Finally, move the 4 disks from rod C to rod B.
 
 ---
 
-最低枚数を求める式を
+That's mean
+
+To move n disks from column A to column B
+
+case of `n = 0`
+:arrow_right: Nothing
+
+case of `n > 0`
+:arrow_right: First, move `n - 1` disks from rod A to rod C using rod B
+:arrow_right: Next, 1 disk move from fod A to rod B
+:arrow_right: Finally, move `n - 1` disks from rod C to rod B using rod A
+
+---
+
+The Calculation Formula for determining the minimum number of disks is
 
 $H(n)$
 
-とすると、0枚の場合
+Then, if there are 0 disk
 
 $H(0) = 0$
 
 ---
 
-1枚の円盤を移す方法は
+Way of move 1 disk
 
 $H(1) = 1$
 
-つまり
-
+That's mean
 
 $H(n) = H(n - 1) + 1 + H(n - 1)$
 
 ---
 
-0から順番にみると
+Let's see from 0 disk
 
 $H(0) = 0$
 $H(1) = H(0) + 1 + H(0) = 0 + 1 + 0 = 1$
@@ -184,6 +204,7 @@ $H(5) = H(4) + 1 + H(4) = 15 + 1 + 15 = 31$
 $H(6) = H(5) + 1 + H(5) = 31 + 1 + 31 = 63$
 
 ---
+In other words
 
 $0 = 1 - 1$
 $1 = 2 - 1$
@@ -195,6 +216,8 @@ $1, 2, 4, 8 = 2^0, 2^1, 2^2, 2^3, 2^4$
 
 ---
 
+## Conclusion
+
 $H(n) = 2^n - 1$
 
 ---
@@ -205,17 +228,17 @@ OK, I'll make the computer calculate.
 ---
 
 ```js
-const hanoi = (n, x = 'x', y = 'y', z = 'z') => {
+const H = (n, x = 'x', y = 'y', z = 'z') => {
   if (n == 0) {
     // nothing
   } else {
-    hanoi(n - 1, x, z, y)
+    H(n - 1, x, z, y)
     console.log(`${x} -> ${y}`)
-    hanoi(n - 1, z, y, x)
+    H(n - 1, z, y, x)
   }
 }
 
-hanoi(3)
+H(3)
 ```
 
 ---
